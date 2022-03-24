@@ -1,0 +1,35 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-single container">
+    <h2 class="main-h2 text-center"><%= name %></h2>
+
+
+    <!-- prev and next -->
+
+    <section class="prev-and-next d-flex justify-content-around">
+        <p class="prev">
+            <% if(data.id > 1) { %>
+                <a href="/beers/<%= data.id - 1 %>" class="btn btn-large">Prev</a>
+            <% } %>
+        </p>
+        <p class="next">
+            <% if(data.id <= count) { %>
+                <a href="/beers/<%= data.id + 1 %>" class="btn btn-large" >Next</a>
+            <% } %>
+        </p>
+    </section>
+    <section class="section section-single d-flex justify-content-center">
+
+        <figure class="figure figure-single">
+            <img src="<%= data.image %>" alt="<%= data.title %>" class="img-fluid pb-5 single-img">
+            <figcaption class="figcaption text-white"> Beer Name: <%= data.name %></figcaption>
+            <figcaption class="figcaption text-white"> Price: <%= data.price %></figcaption>
+            <figcaption class="figcaption text-white"> Ratings By Review: <%= data.rating.reviews %>
+            <figcaption class="figcaption text-white"> Ratings By Average: <%= data.rating.average %>
+            </figcaption>
+            
+        </figure>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>
